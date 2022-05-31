@@ -1,0 +1,6 @@
+# Routes
+
+GET     /ping                               controllers.Application.ping
+
+GET     /employees/details/:id              controllers.Application.getEmployeeDetailsByEmployeeId(id:Int)
+GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
