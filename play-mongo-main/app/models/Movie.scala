@@ -7,7 +7,8 @@ import reactivemongo.bson.BSONObjectID
 import reactivemongo.bson._
 import play.api.libs.json.JodaWrites._
 import play.api.libs.json.JodaReads._
-
+/* Case class has apply and unapply  methods in the companion object so we don’t need to use the new keyword to create
+a new instance of the class and lets lets us use case classes in more ways in match expressions.  */
 case class Movie(
                   _id:Option[BSONObjectID],
                   _creationDate: Option[DateTime],
@@ -15,6 +16,7 @@ case class Movie(
                   title:String,
                   description:String
                 )
+//A companion object and its class can access each other’s private members
 object Movie{
   implicit val fmt : Format[Movie] = Json.format[Movie]
   implicit object MovieBSONReader extends BSONDocumentReader[Movie] {
